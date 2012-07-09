@@ -73,7 +73,7 @@ class LauncherFactory
         { name: "Anime List", image: "launcher/anime.png" },
         { name: "Manga List", image: "launcher/manga.png" },
         { name: "Search",     image: "launcher/search.png" },
-        { name: "Settigns",   image: "launcher/settings.png" },
+        { name: "Settings",   image: "launcher/settings.png" },
       ]
     end
 
