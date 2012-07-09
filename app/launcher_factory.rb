@@ -2,6 +2,7 @@ class MALLauncherButton < NILauncherButton
   def init
     super.tap do |instance|
       instance.setTitleColor(UIColor.whiteColor, forState: UIControlStateNormal)
+      instance.setTitleShadowColor(UIColor.redColor, forState: UIControlStateNormal)
     end
   end
 end
@@ -11,11 +12,16 @@ class MALLauncher < NILauncherViewController
     init.tap do |ml|
       ml.pages = [items]
       ml.title = 'iMAL'
+      ml.scrollview.setBackgroundColor(RGBA.darkBlue.uiColor)
     end
   end
 
   def launcherButtonClass
     MALLauncherButton
+  end
+
+  def scrollview
+    view.subviews[0]
   end
 
   def buttonDimensionsInLauncherView(launcherView)
@@ -44,22 +50,11 @@ class LauncherFactory
     def view_controller
       @_nc ||= UINavigationController.alloc \
           .initWithRootViewController(launcher_view_controller).tap {|nc|
-        nc.navigationBar.setTintColor(mal_blue)
+        nc.navigationBar.setTintColor(RGBA.malBlue.uiColor)
       }
     end
 
     private
-    def mal_blue
-      UIColor.colorWithRed(normalize_rgb(29),
-                           green: normalize_rgb(67),
-                           blue:  normalize_rgb(155),
-                           alpha: 1.0)
-    end
-
-    def normalize_rgb(color)
-      color / 255.0
-    end
-
     def launcher_view_controller
       @_vc ||= MALLauncher.alloc.initWithItems(make_items)
     end
