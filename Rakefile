@@ -8,6 +8,8 @@ require 'motion-cocoapods'
 Motion::Project::App.setup do |app|
   app.name = 'maid'
 
+  app.frameworks << 'QuartzCore'
+
   app.pods do
     dependency 'AFNetworking'
     dependency 'Nimbus/Launcher'
