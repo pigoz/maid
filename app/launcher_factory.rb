@@ -10,7 +10,7 @@ class LauncherFactory
 
   private
   def launcher_view_controller(handler)
-    @_lvc ||= MALLauncher.alloc.initWithItems(items, tapHandler: handler)
+    @_lvc ||= MALLauncher.alloc.initWithItems(items, eventHandler: handler)
   end
 
   def items

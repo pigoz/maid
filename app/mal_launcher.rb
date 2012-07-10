@@ -1,9 +1,6 @@
 class MALLauncherButton < NILauncherButton
-  def init
-    super.tap do |instance|
-      instance.setTitleColor(UIColor.whiteColor,
-                   forState: UIControlStateNormal)
-    end
+  def viewDidLoad
+    setTitleColor(UIColor.whiteColor, forState: UIControlStateNormal)
   end
 end
 
@@ -28,8 +25,12 @@ class MALLauncher < NILauncherViewController
       ml.eventHandler = eventHandler
       ml.items = items
       ml.title = 'iMAL'
-      ml.scrollview.setBackgroundColor(RGBA.darkBlue.uiColor)
     end
+  end
+
+  def viewDidLoad
+    super
+    launcherView.setBackgroundColor(RGBA.darkBlue.uiColor)
   end
 
   def launcherButtonClass
